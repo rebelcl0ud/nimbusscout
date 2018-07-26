@@ -1,0 +1,28 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "watch": "nodemon -L --ignore public/",
+    "assets": "webpack",
+    "start": "concurrently 'npm run watch' 'npm run assets' --names '💻,📦' --prefix name",
+    "server": "browser-sync start --directory --server --files '*.js, *.html, *.css'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.6",
+    "concurrently": "^3.6.1",
+    "nodemon": "^1.18.3",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "request": "^2.87.0"
+  }
+}

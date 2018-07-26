@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WeatherApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/master.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+  <script src="https://gitcdn.link/cdn/darkskyapp/skycons/master/skycons.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <!--h1>testing...</h1-->
+  </div>
+  <br />
+<div class= "data-box">
+  <div class="location-box">
+    <!-- location -->
+    <div class="location"></div>
+    <div class="skycon">
+      <canvas id="weather-icon" width="64" height="64"></canvas>
+    </div>
+  </div>
+  <!-- weather -->
+  <div class="weather-box">
+    <div class="weather" id="f" style="display:block"></div>
+    <div class="weather" id="c" style="display:none"></div>
+    <button id="temp-button">°F / °C</button>
+  </div>
+</div>
+  <!-- footer -->
+  <div class="footer">
+    <p><a href="https://darksky.net/poweredby/"> Powered by Dark Sky </a></p>
+  </div>
+</div>
+<script src="./js/build.js"></script>
+</body>
+</html>
