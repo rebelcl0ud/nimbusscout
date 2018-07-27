@@ -1,3 +1,4 @@
+// NOTE: set up repo/initial commit, but no push yet
 const express = require('express');
 const app = express();
 // for use w/ multiple roots
@@ -23,11 +24,6 @@ app.post('/', (req, res) => {
 	const lat = req.body.lat;
 	const long = req.body.long;
 
-	getWeather(lat, long);
-	res.send('POST req successful');
-});
-
-function getWeather(lat, long) {
 	// don't forget to install request -_-
 	// allows for http calls
 	var options = { method: 'GET',
@@ -39,9 +35,11 @@ function getWeather(lat, long) {
 
 	request(options, function (error, response, body) {
 	  if (error) throw new Error(error);
-
 	  // console.log(body);
-	  // console.log(response);
-	  // response shoots out data, now to display on client side...
+	  // body shoots out data, now to display on client side...
+	  // this give info pretty JSON fashion/readable
+	  let jsonData = JSON.parse(body);
+	  // console.log(jsonData)
+	  res.send(jsonData);
 	});
-}
+});
