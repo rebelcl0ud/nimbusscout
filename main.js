@@ -1,4 +1,3 @@
-// NOTE: set up repo/initial commit, but no push yet
 const express = require('express');
 const app = express();
 // for use w/ multiple roots
@@ -15,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // server
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log('app listening...');
 });
 
