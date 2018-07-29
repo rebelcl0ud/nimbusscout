@@ -16,21 +16,15 @@ if ("geolocation" in navigator) {
         long: longitude
       },
       success: (response) => {
-        $('.location').html(latitude);
-        // console.log(response);
-        // console.log(response.currently);
+        // city
+        const location = response[0];        
+        document.querySelector('.location').innerHTML = location; 
 
-        const { temperature: currentTemp, apparentTemperature: feelsLike, icon: tempIcon } = response.currently;
-        // console.log(currentTemp, feelsLike, tempIcon);
-       
+        // weather
+        const { temperature: currentTemp, apparentTemperature: feelsLike, icon: tempIcon } = response[1].currently; 
         const tempIconEdit = tempIcon.replace(/-/g, ' '); // this takes out dashes for descriptive output under skycon
-
-        const dailySummary = response.daily.summary;
-        // console.log(dailySummary);
-
-        // var tempUnit = data.flags.units; // "us" or "si"
-        // console.log(tempUnit);
-
+        const dailySummary = response[1].daily.summary;
+      
         function celsiusConvert() {
           // C = (F - 32) / 1.8
           let cTemp = (currentTemp - 32) / 1.8;
@@ -86,13 +80,16 @@ if ("geolocation" in navigator) {
           }
         }
         skycons.play();
-
-} else {
+      }
+    });
+  });
+} 
+else {
   /* geolocation IS NOT available */
-  $('.location').html('geolocation NOT available');
+  document.querySelector('.location').innerHTML = 'geolocation NOT available'; 
 }
 
 // toggle button
 $('#temp-button').on('click', function() {
   $('.weather').toggle();
-}); 
+});
