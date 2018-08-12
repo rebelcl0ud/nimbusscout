@@ -70,8 +70,11 @@ app.post('/', (req, res) => {
 		  // body shoots out data, now to display on client side...
 		  // this give info pretty JSON fashion/readable
 		  let weatherData = JSON.parse(body);
-		 	// res.send(weatherData);
-		  city.push(weatherData);
+		  // res.send(weatherData);
+		  // let {latitude, longitude, timezone} = weatherData;
+		  let currentWeatherData = weatherData.currently;
+		  let dailyWeatherDataSummary = weatherData.daily.summary;
+		  city.push({currentWeatherData, dailyWeatherDataSummary});
 		  res.send(city);
 		});
 	}

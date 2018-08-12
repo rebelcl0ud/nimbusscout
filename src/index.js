@@ -25,9 +25,9 @@ if ("geolocation" in navigator) {
           document.querySelector('.location').innerHTML = location; 
 
           // weather
-          const { temperature: currentTemp, apparentTemperature: feelsLike, icon: tempIcon } = response[1].currently; 
+          const { temperature: currentTemp, apparentTemperature: feelsLike, icon: tempIcon } = response[1].currentWeatherData; 
           const tempIconEdit = tempIcon.replace(/-/g, ' '); // this takes out dashes for descriptive output under skycon
-          const dailySummary = response[1].daily.summary;
+          const dailySummary = response[1].dailyWeatherDataSummary;
         
           function celsiusConvert() {
             // C = (F - 32) / 1.8
