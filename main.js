@@ -49,8 +49,13 @@ app.post('/', (req, res) => {
 		  to combine with weather data being sent client side 
 		  **/
 		  let {formatted_address: location} = cityData.results[1];
-      location = location.split(',').slice(1).join(',');  
-		  city.push(location);
+      location = location.split(',').slice(1).join(',');
+      if(location === '') {
+      	city.push('Nimbus hit a snag on city deets...');
+      }
+      else {
+      	city.push(location);
+      }
 		});
 	}
 
